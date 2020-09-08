@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Nmap</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">More details  of Nmap</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Know me </a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://twitter.com/ShreyankaSubba" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							
+							<li><a href="https://www.linkedin.com/in/shreyanka-subba-224520199/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/Shrey-stack" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>NMap</h1>
+							
+								</header>
+								<div class="image main"><img src="images/nmap2.jpg" alt="" /></div>
+								<p>
+									Nmap is a very powerful utility that can be used to: <br />
+									*	Detect the live host on the network (host discovery) <br />
+									*	Detect the open ports on the host (port discovery or enumeration) <br />
+									*	Detect the software and the version to the respective port (service discovery) <br />
+									*	Detect the operating system, hardware address, and the software version <br />
+									*	Detect the vulnerability and security holes (Nmap scripts) <br />
+								</p>
+								<p><h3>How to use Nmap effectively:</h3><br />
+									The usage of Nmap depends on the target machine because there is a difference between simple (basic) scanning and advance scanning. We need to use some advanced techniques to bypass the firewall and intrusion detection/preventative software to get the right result. 
+									Below are the examples of some basic commands and their usage:<br />
+									<u>To scan a single system</u><br />
+									# nmap 192.168.1.1<br />
+									<u>To scan entire subnet</u><br />
+									# nmap 192.168.1.1/24<br />
+									<u>To scan multiple targets, seperate each target via space</u><br />
+									# nmap 192.168.1.1 192.168.1.8 <br />
+									<u>To scan a range of IP addresses, but not the entire subnet</u> <br />
+									# nmap 192.168.1.1-100 <br />
+									<u>to see the list of all the hosts that you are scanning</u><br />
+									# nmap -sL 192.168.1.1/24<br />
+									<u>to scan the entire subnet but not a specific IP addresses</u><br />
+									# nmap 192.168.1.1/24 – -exclude 192.168.1.1<br />
+									<u>To scan a specific port on the target machines </u><br />
+									# nmap -p80,21,23 192.168.1.1 (for port number 80,21 and 23)<br />
+								</p>
+
+								<p>
+									<h3>Nmap Scanning Techniques</h3>
+
+									There are so many scanning techniques available on Nmap. <br />
+									
+									<b>TCP SYN Scan (-sS)</b><br />
+									It is a basic scan, and it is also called half-open scanning because this technique allows Nmap to get information from the remote host without the complete TCP handshake process, Nmap sends SYN packets to the destination, but it does not create any sessions, As a result, the target computer can’t create any log of the interaction because no session was initiated, making this feature an advantage of the TCP SYN scan.
+									A root/administrator privileged.<br/>
+									# nmap -sS 192.168.1.1<br />
+
+									<b>TCP connect() scan (-sT)</b><br />
+									This is the default scanning technique used, only if the SYN scan is not an option, because the SYN scan requires root privilege. 
+									This completes the normal TCP three way handshake process and requires the system to call connect(), which is a part of the operating system.
+									However one should keep in mind that this technique is only applicable to find out the TCP ports, not the UDP ports.<br />
+
+									# nmap -sT 192.168.1.1 <br />
+									
+									
+									<b>UDP Scan (-sU)</b><br />
+									This technique is used to find an open UDP port of the target machine. It does not require any SYN packet to be sent because it is targeting the UDP ports. 
+									But we can make the scanning more effective by using -sS along with –sU. 
+									UDP scans send the UDP packets to the target machine, and waits for a response—if an error message arrives saying the ICMP is unreachable, then it means that the port is closed; but if it gets an appropriate response, then it means that the port is open.<br />
+
+									# nmap -sU 192.168.1.1 <br />
+
+									<b>FIN Scan (-sF)</b><br />
+									Sometimes a normal TCP SYN scan is not the best solution because of the firewall. 
+									IDS and IPS scans might be deployed on the target machine, but a firewall will usually block the SYN packets.
+									A FIN scan sends the packet only set with a FIN flag, so it is not required to complete the TCP handshaking.<br />
+
+									# nmap -sF 192.168.1.8 <br />
+
+									<b>Ping Scan (-sP)</b><br />
+									Ping scanning is only used to find out whether the host is alive or not, it is not used to discover open ports.
+									Ping scans require root access. ICMP packets can be sent, but if the user does not have administrator privilege, then the ping scan uses connect() call.<br />
+
+									# nmap -sP 192.168.1.1 <br />
+
+									<b>Version Detection (-sV)</b><br />
+									Version detection is used to find out what software version is running on the target computer and on the respective ports.
+									It is not used to detect the open ports but it requires the information from open ports to detect the software version. 
+									In the first step of this scan technique, version detection uses the TCP SYN scan to find out which ports are open.<br />
+
+									# nmap -sV 192.168.1.1 <br />
+
+									<b>Idle Scan (-sI)</b><br />
+									Idle scan is a highly used technique, since it provides complete anonymity while scanning.
+									In idle scan, Nmap doesn’t send the packets from your real IP address.
+									Instead of generating the packets from the attacker machine, Nmap uses another host from the target network to send the packets. <br/>
+
+									# nmap -sI 192.168.1.6 192.168.1.1 <br />
+									Here idle scan technique is used to discover the open ports on 192.168.1.1 while it uses the zombie_host (192.168.1.6) to communicate with the target host. <br />
+
+									<b>OS Detection </b><br />
+									Nmap has the ability to detect remote operating systems and software. 
+									It is very helpful during a penetration test to know about the operating system and the software used by the remote computer because one can easily predict the known vulnerabilities from this information.<br />
+
+									#nmap -O 192.168.1.1 <br />
+									Here O detects the operating system. <br />
+									</p>
+
+									<p>
+										Nmap is a very powerful tool and it has ability to cover the very first aspects of penetration testing, which include information gathering and enumeration.
+									</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+					</footer>
+
+				
+					<div id="copyright">
+						<p>&copy; Shreyanka Subba<p></p>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

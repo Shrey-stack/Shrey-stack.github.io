@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Nmap</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">More details  of theHarvester</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Know me </a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://twitter.com/ShreyankaSubba" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							
+							<li><a href="https://www.linkedin.com/in/shreyanka-subba-224520199/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/Shrey-stack" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>theHarvester</h1>
+							
+								</header>
+								<div class="image main"><img src="images/harvester.jpg" alt="" /></div>
+								<p>
+                                    The objective of theHarvester is to gather emails, subdomains, hosts, employee names, open ports and 
+                                    banners from different public sources like search engines, PGP key servers, and SHODAN computer database.<br />
+
+                                   theHarvester is intended to help Penetration testers in the early stages of the penetration test in order to understand the customer footprint on the Internet. 
+                                    It is also useful for anyone that wants to know what an attacker can see about their organization.<br />
+
+                                    
+                                    <h3>How theHarvester works</h3><br />
+                                    Theharvester works by searching for information from every public sources for information regarding a particular host. 
+                                    The Kind of informaiton that this tool can get scrape include:<br />
+
+                                    *   Email address ( Snippet to harvest email using google search )<br />
+                                    *   Subdomains<br />
+                                    *   Ipaddresses ( Snippet to get domain ip )<br />
+                                    *   Names<br />
+
+                                </p>
+
+
+                                <p><h3>How to use theHarvester tool:</h3><br />
+                                    theharvester -d [domain name] -b [search engine name / all ][options] [parameters] <br />
+                                    
+                                    <div class="image main"><img src="images/theharvester2.jpg" alt="" /></div>
+
+                                    <b>Following are the options available:</b><br />
+                                    *   -d: Domain to search or company name<br />
+                                    *   -b: Data source: baidu, bing, bingapi, dogpile, google, googleCSE, googleplus, google-profiles, linkedin, pgp, twitter, vhost, yahoo <br />
+                                    *   -s: Start in result number X (default: 0)<br />
+                                    *   -v: Verify hostname via DNS resolution and also search for virtual hosts<br />
+                                    *   -f: Save the results into an HTML and XML file (both)<br />
+                                    *   -n: Perform DNS reverse query on all ranges discovered<br />
+                                    *   -c: Perform DNS brute force for the domain name<br />
+                                    *   -t: Perform DNS TLD expansion discovery<br />
+                                    *   -e: Use this DNS server<br />
+                                    *   -l: Limit the number of results to work with (bing goes from 20 to 20 results, google 100 to 100, and pgp doesn’t use this option)<br />
+                                    *   -h: Use SHODAN database to query discovered hosts<br />
+
+
+								</p>
+
+								<p>
+                                    You can simply use the command theHarvester -d [url] -l 300 -b [search engine name] <br />
+
+                                    For example: theHarvester -d sixthstartech.com -l 300 -b google <br />
+
+                                    <div class="image main"><img src="images/theharvester3.jpg" alt="" /></div>
+                                    
+                                </p>
+
+                                <p>
+                                    To get all the information about the website instead of being precise to just one particular search engine, use all <br />
+
+                                    For example: theHarvester -d sixthstartech.com -l 300 -b all <br />
+
+                                    <div class="image main"><img src="images/theharvester4.jpg" alt="" /></div>
+
+                                </p>
+                                   
+                                    <h3>To save the file</h3> <br />
+                                    
+                                    You can further save the results in HTML file using the -f command.<br />
+
+                                    For example:theHarvester.py -d sixthstartech.com  -l 300 -b all -f test<br />
+                                    (Here we are saving the file name as test) <br />
+
+                                    <div class="image main"><img src="images/theharvester6.jpg" alt="" /></div>
+
+
+	                            <p>
+                                    theHarvester is designed to help penetration tester on an earlier stage; it is effective, simple and easy to use. Do give it a try. <br />   
+        
+									</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+					</footer>
+
+				
+					<div id="copyright">
+						<p>&copy; Shreyanka Subba</p>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

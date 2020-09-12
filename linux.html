@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Linux</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">More details  of Linux</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Know me </a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://twitter.com/ShreyankaSubba" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							
+							<li><a href="https://www.linkedin.com/in/shreyanka-subba-224520199/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/Shrey-stack" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Linux</h1>
+							
+								</header>
+								<div class="image main"><img src="images/linux2.jpg" alt="" /></div>
+								<p>
+									Few reasons why linux is better <br />
+									*	In Linux user has access to the source code of kernel and alter the code according to his need. It has its own advantages like bugs in OS will fix at a rapid pace and disadvantages like developers may take advantage of any weakness in OS if they found. <br />
+									*	Linux has various distributions which are highly customizable based on user needs. <br />
+									*	In Linux, command line is a very useful tool for administration and daily tasks. <br />
+									*	In Linux, users have full control of updates, we can install whenever we needed and it will take less time without any reboot. <br />
+									*	Linux is more secure and hackers or developers of viruses will find difficult to break through Linux. <br />
+								</p>
+								<p><h3>Useful commands in Linux:</h3><br />
+									I have listed some basic Linux commands below:<br />
+									<u>To print working directory</u><br />
+									# pwd<br />
+									<u>To list things in directory</u><br />
+									# ls<br />
+									<u>To change directory</u><br />
+									# cd<br />
+									<u>To go to root</u> <br />
+									# / or cd / or ls /<br />
+									<u>to list hidden files and non hidden files</u><br />
+									# ls -a<br />
+									<u>to create new file</u><br />
+									# touch newfilename.txt<br />
+									<u>To create new directory (folder) </u><br />
+                                    # mkdir newfoldername<br />
+                                    <u>To move file</u><br />
+									# mv filename(source) target(where you want the file to be)<br />
+									<u>To delete file</u><br />
+									# rm filename<br />
+									<u>To delete directory </u><br />
+									# rmdir foldername<br />
+									<u>To delete directory with contents</u> <br />
+									# rm -r foldername<br />
+									<u>To display the user manual of any command </u><br />
+									# man command (ex man vim)<br />
+									<u>to view long listing of the files including permisiion and sizes in human readable format</u><br />
+									# ls -alh<br />
+									<u>To go to nano file editor </u><br />
+                                    # nano filename<br />
+                                    <u>To execute command after the previous command is successful </u><br />
+									# && (ex prog1 && prog2)<br />
+								</p>
+
+								<p>
+									<h3>Other useful commands</h3> <br />
+									
+									<b>uname -a</b><br />
+                                    This command is used to check kernel version of current system. It shows host name, OS, Kernel, Kernel version, Release<br/>
+                                    <div class="image main"><img src="images/uname.png" alt="" /></div>
+                                    <br />
+
+                                    <b>ifconfig</b><br />
+                                    
+                                    This command shows the IPV4 address, IPV6 address, MAC address and Sub-net masks.
+                                    <br />
+                                    <div class="image main"><img src="images/ifconfig.png" alt="" /></div> <br />
+									
+									
+									<b>df -ah</b><br />
+                                    This command checks for free disk space. Here, SDA 1 is the root portion. 
+                                  <br />
+                                  <div class="image main"><img src="images/freediskspace.png" alt="" /></div>
+                                 <br />
+
+                                    <b>systemctl status service_name</b><br />
+                                    This command checks how a service is managed in the system. Below, I have used udev service as an example. <br />
+                                    <div class="image main"><img src="images/manageservice.png" alt="" /></div>
+                                     <br />
+
+									<b>du -sh -file/folder_name</b><br />
+                                    This command checks the size of a directory or a file's content on a disk. <br />
+                                    
+                                    <div class="image main"><img src="images/size.png" alt="" /></div>
+									
+
+                                    <b>netstat</b><br />
+                                    This command checks for open ports, both tcp and udp.
+                                    However, it shows a very long list. <br />
+                                    It is highly suggested to use netstat_tulpn. This command shows Local address, Foreign Address, State and PID in a shortlisted format.<br />
+
+                                    <div class="image main"><img src="images/openports.png" alt="" /></div><br />
+
+	
+
+									<b>man command</b><br />
+                                    As mentioned above, this command shows the manual/ guidelines of anything you want to know. 
+                                    Below, I am using man for grep.
+
+                                    <div class="image main"><img src="images/man_grep.png" alt="" /></div> <br/>
+
+									</p>
+
+									<p>
+										I know one can get extremely horrified after seeing a terminal. But trust me, it gets better once you start learning. <br />
+									</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+					</footer>
+
+				
+					<div id="copyright">
+						<p>&copy; Shreyanka Subba</p>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

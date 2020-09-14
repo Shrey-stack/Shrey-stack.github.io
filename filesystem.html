@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Linux File System</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">More details  of Nmap</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Know me </a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://twitter.com/ShreyankaSubba" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							
+							<li><a href="https://www.linkedin.com/in/shreyanka-subba-224520199/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/Shrey-stack" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Linux File System</h1>
+							
+								</header>
+								<div class="image main"><img src="images/fd1.jpeg" alt="" /></div>
+								<p>
+                                    Linux file system has a hierarchal file structure as it contains a root directory and its subdirectories.
+                                    The Linux directory structure is like a tree. The base of the Linux file system hierarchy begins at the root. Directories branch off the root, but everything starts at root.
+                                    The directory separator in Linux is the forward slash (/). Often the root of the file system is referred to as “slash” since the full path to it is /. 
+                                    If you hear someone say “look in slash” or “that file is in slash,” they are referring to the root directory.
+								</p>
+								<p>
+                                    <h3>Let's take a look into the file system in brief</h3>
+                                   <br />
+									
+                                    <b>/root</b><br />
+                                    The root filesystem is the top-level directory of the filesystem. It must contain all of the files required to boot the Linux system before other filesystems are mounted. 
+                                    It must include all of the required executables and libraries required to boot the remaining filesystems. After the system is booted, all other filesystems are mounted on standard, well-defined mount points as subdirectories of the root filesystem.
+                                    <br/>
+
+									<div class="image main"><img src="images/root.png" alt="" /></div><br />
+
+                                    <b>/bin</b><br />
+                                    The /bin directory contains user executable files.
+                                    The core command of Linux such as mv, ls can be found here.<br />
+
+									
+									<div class="image main"><img src="images/bin.png" alt="" /></div><br />
+									
+									
+                                    <b>/boot</b><br />
+                                    The /boot directory Contains the static bootloader and kernel executable and configuration files required to boot a Linux computer.
+                                    
+									<div class="image main"><img src="images/boot1.png" alt="" /></div><br />
+
+                                    <b>/dev</b><br />
+                                    This directory contains the device files for every hardware device attached to the system. 
+                                    These are not device drivers, rather they are files that represent each device on the computer and facilitate access to those devices.
+                                    <br />
+
+                                    
+									<div class="image main"><img src="images/dev.png" alt="" /></div><br />
+
+                                    <b>/etc</b><br />
+                                    This directory contains the local system configuration files for the host computer.
+                                    It contains configurations for the installed packages.
+                                    
+									<div class="image main"><img src="images/etc.png" alt="" /></div><br />
+
+                                    <b>/home</b><br />
+                                    This directory contains user home directories.
+                                    It allows each user to separate their data from the other users on the system. <br />
+       
+                                    
+									<div class="image main"><img src="images/home.png" alt="" /></div><br />
+
+                                    <b>/lib</b><br />
+                                    This directory contains shared library files that are required to boot the system. <br />
+                                    
+									<div class="image main"><img src="images/lib.png" alt="" /></div><br />
+									
+                                    <b>/media</b><br />
+                                    This directory is a place to mount external removable media devices such as USB thumb drives that may be connected to the host.<br />
+                                    
+									<div class="image main"><img src="images/media.png" alt="" /></div><br />
+                                    
+                                    <b>/lib</b><br />
+                                    This directory contains shared library files that are required to boot the system. <br />
+                                    
+									<div class="image main"><img src="images/lib.png" alt="" /></div><br />
+									
+                                    <b>/opt</b><br />
+                                    This directory contains Optional files such as vendor supplied application programs. <br />
+                                    
+									<div class="image main"><img src="images/opt.png" alt="" /></div><br />
+                                    
+                                    <b>/proc</b><br />
+                                    This directory contains all the information of process that is running. 
+                                    It contains virtual file system that kernel uses to communicate with the system and other programme in the machine. <br />
+                                    
+									<div class="image main"><img src="images/proc.png" alt="" /></div><br />
+									
+                                    <b>/sbin</b><br />
+
+                                    This directory contains system binary files.
+                                    These are very critical files which the machine needs for running.
+                                    Please do not modify it unless necessary.
+                                     
+                                    <div class="image main"><img src="images/sbin.png" alt="" /></div><br />
+
+                                    <b>/tmp</b><br />
+                                    This is a temporary directory.It is used by the operating system and many programs to store temporary files. The files stored here may be deleted at any time without prior notice. <br />
+
+                                    
+									<div class="image main"><img src="images/tmp.png" alt="" /></div><br />
+                                    
+                                    <b>/usr</b><br />
+                                    This directory contains shareable, read-only files, including executable binaries and libraries, man files, and other types of documentation. 
+                                    <br />
+                                    
+									<div class="image main"><img src="images/usr.png" alt="" /></div><br />
+                                    
+                                    </p>
+
+									<p>
+                                        I hope by now you have a good idea about what the Linux file system is.
+										
+									</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+					</footer>
+
+				
+					<div id="copyright">
+						<p>&copy; Shreyanka Subba</p>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

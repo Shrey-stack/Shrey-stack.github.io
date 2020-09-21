@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Net configuration</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">More details of Linux Net Configuration</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Know me </a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://twitter.com/ShreyankaSubba" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							
+							<li><a href="https://www.linkedin.com/in/shreyanka-subba-224520199/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/Shrey-stack" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post"> 
+								<header class="major">
+									<h1>TCP IPv4</h1>
+							
+								</header>
+								<div class="image main"><img src="images/tcpip.jpg" alt="" /></div>
+								<p>
+                                    So let us start with TCP IPv4.
+                                    TCP (Transmission Control Protocol) is a standard that defines how to establish and maintain a network conversation through which application programs can exchange data. 
+                                    TCP works with the Internet Protocol (IP), which defines how computers send packets of data to each other.
+                                    Together, TCP and IP are the basic rules defining the Internet.
+                                    
+
+                                    IP (version 4) addresses are 32-bit integers that can be expressed in hexadecimal notation. The more common format, known as dotted quad or dotted decimal, is x.x.x.x, where each x can be any value between 0 and 255. For example, 192.0.2.146 is a valid IPv4 address.
+                                    Internet protocol is the internet’s principal set of rules for communications.
+                                    It controls routing of information to different servers/computers/devices.
+                                    <br />
+
+                                    
+                                    <h3>Components of TCP and IPv4</h3><br />
+                                    
+
+                                    *   <b> IP address</b>: A process of computer discovering each other.<br />
+                                    *   <b>Subnet mask </b>: A process where an IP address is divided into two parts: the network part and the host (node) part. <br />
+                                    *   <b>Default gateway</b>: Means of devices in one network to communicate with devices in another network.<br />
+                                    *   <b>DNS </b>: Phonebook for the internet. It maps domain name to IP address<br />
+
+                                </p>
+
+
+                                <p><h3>DHCP (Dynamic Host Control Protocol):</h3><br />
+
+                                    DHCP server automatically assigns an IP address and other information to each host on the network so they can communicate efficiently with other endpoints. <br />
+
+                                    In addition to the IP address, DHCP also assigns the subnet mask, default gateway address, domain name server (DNS) address and other pertinent configuration parameters. <br />
+
+                                    
+                                    The primary reason DHCP is needed is to simplify the management of IP addresses on networks.  No two hosts can have the same IP address, and configuring them manually will likely lead to errors. <br />
+                                    
+                                    <b>Lease </b> : The length of time for which a DHCP client holds the IP address information. When a lease expires, the client must renew it.
+
+
+                                </p>
+
+                                <p><h3>NAT (Network Access Translation):</h3><br />
+
+                                    With the explosion of the Internet and the increase in home networks and business networks, the number of available IP addresses is simply not enough. <br />
+                                    
+                                    ­ This is where NAT comes to the rescue. Network Address Translation allows a single device, such as a router, to act as an agent between the Internet (or "public network") and a local (or "private") network. This means that only a single, unique IP address is required to represent an entire group of computers.
+                                    
+                                </p>
+
+                                <p><h3>Subnet Masking:</h3><br />
+
+                                    As mentioned above, in Subnet Masking IP address is split into two components a network component and a node component. <br />
+
+                                    Well, just like an IP address, a subnet mask also consists of 32 bits. It is used by computers to determine the network part and the host part of an IP address. <br />
+
+                                    There are three default subnet class: <br />
+
+                                    1) Class A- 255.0.0.0 <br />
+                                    2) Class B- 255.255.0.0 <br />
+                                    3) Class C- 255.255.255.0 <br /> 
+
+                                </p>
+
+                                <p>
+                                    Linux net configuration files can be found under the <b> /etc </b> directory. <br />
+                                     
+                                    
+                        
+        
+									</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+					</footer>
+
+				
+					<div id="copyright">
+						<p>&copy; Shreyanka Subba</p>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

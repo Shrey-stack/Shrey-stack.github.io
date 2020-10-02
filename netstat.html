@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Netstat</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">More details  of Netstat</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Know me </a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://twitter.com/ShreyankaSubba" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							
+							<li><a href="https://www.linkedin.com/in/shreyanka-subba-224520199/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/Shrey-stack" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Linux</h1>
+							
+								</header>
+								<div class="image main"><img src="images/netstat1.png" alt="" /></div>
+								<p>
+                                    The netstat command generates displays that show network status and protocol statistics. 
+                                    It works in conjunction with the ifconfig command to provide a status condition of the TCP/IP network interface.
+
+                                    netstat displays various types of network data depending on the command line option selected.
+								</p>
+
+								<p>
+									<h3>Some useful commands</h3> <br />
+									
+									<b>netstat -a</b><br />
+                                    This command shows both listening and non-listening sockets. <br />
+                                    A listening socket is one where the server process is waiting for someone to connect to it. <br />
+                                    A non-listening socket is one where a connection has been made, has connected, and data can be or is being transmitted.<br />
+
+                                    <div class="image main"><img src="images/netsta-a.png" alt="" /></div>
+                                    <br />
+
+                                    <b>netstat -at</b><br />
+                                    
+                                    This command lists all TCP ports.
+                                
+                                    <br />
+                                    <div class="image main"><img src="images/netstat-at.png" alt="" /></div> <br />
+									
+									
+									<b>netstat -au</b><br />
+                                    This command lists all UDP ports.
+                                  <br />
+                                  <div class="image main"><img src="images/netstat-au.png" alt="" /></div>
+                                 <br />
+
+                                    <b>netstat -l</b><br />
+                                    This command lists only listening ports. <br />
+                                    <div class="image main"><img src="images/netstat-l.png" alt="" /></div>
+                                     <br />
+
+									<b>netstat -lt</b><br />
+                                    This command lists only listening TCP ports <br />
+                                    
+                                    <div class="image main"><img src="images/netstat-lt.png" alt="" /></div>
+	
+
+                                    <b>netstat -lx</b><br />
+                                    This command lists only listening UNIX ports.<br />
+                                   
+
+                                    <div class="image main"><img src="images/netstat -lx.png" alt="" /></div> <br/>
+                                    
+
+                                    <b>netstat -s</b><br />
+                                    This command lists statistics for all ports. <br />
+                                    
+                                    <div class="image main"><img src="images/netstat-s.png" alt="" /></div>
+									
+
+                                    <b>netstat -st tcp</b><br />
+                                    This command lists statistics for TCP ports.<br />
+                                    
+
+                                    <div class="image main"><img src="images/netstat -st-tcp.png" alt="" /></div><br />
+
+	
+
+                                    <b>netstat -su udp</b><br />
+                                    This command lists statistics for UDP ports<br />
+                                   
+
+                                    <div class="image main"><img src="images/netstat-su-udp.png" alt="" /></div> <br/>
+
+
+                                    <b>netstat -c</b><br />
+                                    This command displays netstat information continuously<br />
+                                    
+                                    <div class="image main"><img src="images/netstat-c.png" alt="" /></div>
+									
+
+                                    <b>netstat -verbose</b><br />
+                                    This command displays the non-supportive address families in the system.<br />
+                                    
+
+                                    <div class="image main"><img src="images/netstat-verbose.png" alt="" /></div><br />
+
+	
+
+                                    <b>netstat -r</b><br />
+                                    This command displays the kernel routing information.<br />
+                                   
+
+                                    <div class="image main"><img src="images/netstat-r.png" alt="" /></div> <br/>
+
+                                    <b>netstat -ap | grep ssh</b><br />
+                                    This command displays the port on which a program is running.<br />
+                                  <div class="image main"><img src="images/netstat-ap.png" alt="" /></div>
+                                 <br />
+
+                                    <b>netstat -i</b><br />
+                                    This command displays the list of network interfaces <br />
+                                    <div class="image main"><img src="images/netstat-i.png" alt="" /></div>
+                                     <br />
+
+									<b>netstat -ie</b><br />
+                                    This command display extended information on the interfaces.
+                                    It is very similar to ifconfig <br />
+                                    
+                                    <div class="image main"><img src="images/netstat-ie.png" alt="" /></div>
+									</p>
+
+									<p>
+                                    netstat (network statistics) is a powerful command line tool for monitoring network connections both incoming and outgoing as well as viewing routing tables, interface statistics etc.
+                                    Please give it a try and explore its <h3>MAGIC</h3> <br />
+									</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+					</footer>
+
+				
+					<div id="copyright">
+						<p>&copy; Shreyanka Subba</p>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

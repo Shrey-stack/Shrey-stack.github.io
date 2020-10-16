@@ -15,7 +15,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">SSH, FTP, LAMP and GIT</a>
+						<a href="index.html" class="logo">SSH, FTP and LAMP.</a>
 					</header>
 
 				<!-- Nav -->
@@ -40,103 +40,71 @@
 									<h1>SSH</h1>
 							
 								</header>
-								<div class="image main"><img src="images/nmap2.jpg" alt="" /></div>
+								<div class="image main"><img src="images/LAMP.jpg" alt="" /></div>
 								<p>
                                     SSH, also known as Secure Shell or Secure Socket Shell, is a network protocol that gives users a secure way to access a computer over an unsecured network.
                                     To install SSH to your ubuntu follow the commands below: <br />
-                                    <div class="image main"><img src="ssh1.png" alt="" /></div>
-                                    
-                                    
-                                    Nmap is a very powerful utility that can be used to: <br />
-									*	Detect the live host on the network (host discovery) <br />
-									*	Detect the open ports on the host (port discovery or enumeration) <br />
-									*	Detect the software and the version to the respective port (service discovery) <br />
-									*	Detect the operating system, hardware address, and the software version <br />
-									*	Detect the vulnerability and security holes (Nmap scripts) <br />
+									<div class="image main"><img src="images/ssh1.png" alt="" /></div>
+									Then, in your Windows, download PuTTY. You can download it from <a href="https://www.putty.org/">Download PuTTY</a> <br />
+									After that, open PuTTY, and in the hostname section, type the IP address of your Ubuntu machine.<br />
+									You will be asked for your username and your password of your Ubuntu and you're done.<br />
+									<div class="image main"><img src="images/putty.png" alt="" /></div>
+									
+									<b>Congratulations! You can now access your machine remotely.</b>
+									<div class="image main"><img src="images/sshmain.png" alt="" /></div>
+
+									<h1>FTP</h1>
+
+									The next thing I did was use FTP. <br />
+									The File Transfer Protocol is a standard network protocol used for the transfer of computer files between a client and server on a computer network.<br />
+									To install FTP to your ubuntu, follow the commands below: <br />
+									<b>sudo apt-get install vsftpd</b> <br />
+									Then, in windows, download Filezilla. You can download it from <a href="https://filezilla-project.org/download.php?platform=win64">Download Filezilla</a> <br />
+									Open filezilla and type your ubuntu's IP address in the host section, your username and your password of Ubuntu and press Quickconnect.
+									Select the files that you want to transfer, rightclick and click upload.
+									<div class="image main"><img src="images/ftp1.png" alt="" /></div>
+									Your files will be transferred to your Ubuntu machine.
+									<div class="image main"><img src="images/ftp_transfer.png" alt="" /></div>
+									
 								</p>
-								<p><h3>How to use Nmap effectively:</h3><br />
-									The usage of Nmap depends on the target machine because there is a difference between simple (basic) scanning and advance scanning. We need to use some advanced techniques to bypass the firewall and intrusion detection/preventative software to get the right result. 
-									Below are the examples of some basic commands and their usage:<br />
-									<u>To scan a single system</u><br />
-									# nmap 192.168.1.1<br />
-									<u>To scan entire subnet</u><br />
-									# nmap 192.168.1.1/24<br />
-									<u>To scan multiple targets, seperate each target via space</u><br />
-									# nmap 192.168.1.1 192.168.1.8 <br />
-									<u>To scan a range of IP addresses, but not the entire subnet</u> <br />
-									# nmap 192.168.1.1-100 <br />
-									<u>to see the list of all the hosts that you are scanning</u><br />
-									# nmap -sL 192.168.1.1/24<br />
-									<u>to scan the entire subnet but not a specific IP addresses</u><br />
-									# nmap 192.168.1.1/24 – -exclude 192.168.1.1<br />
-									<u>To scan a specific port on the target machines </u><br />
-									# nmap -p80,21,23 192.168.1.1 (for port number 80,21 and 23)<br />
+								<p><h1>LAMP STACK</h1><br />
+									LAMP stack is a group of open source software used to get web servers up and running. The acronym stands for:
+									*L:	Linux <br />
+									*A: Apache <br />
+									*M:	MySQL <br />
+									*P: PHP <br />
+									Since the virtual private server is already running Ubuntu, the linux part is taken care of.
+									Here is how to install the rest. <br />
+
+									<h3>Apache:</h3>
+									Apache HTTP Server is a free and open-source web server that delivers web content through the internet. <br />
+									To install apache: <br />
+									<div class="image main"><img src="images/apache2.png" alt="" /></div>
+									After installing, you have to enable ufw and then check the status.
+									<div class="image main"><img src="images/apache2nd.png" alt="" /></div>
+									<b>Voilà, you're done!</b>
+								
+									<h3>MySQL:</h3>
+									MySQL is a database system used on the web. It is a database system that runs on a server and is ideal for both small and large applications. <br />
+									To install MySQL: <br />
+									<div class="image main"><img src="images/mysql1.png" alt="" /></div>
+									After that, follow the command below and enter your password.<br />
+									<b>And Voilà, you're done!</b>
+
+									<h3>PHP</h3>
+									PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages.<br />
+									PHP 7 is the latest stable release.<br />
+									To instal PHP: <br />
+									<div class="image main"><img src="images/php1.png" alt="" /></div>
+									<b>Voilà, you're done!</b>
+									
+									<h3>ALSO, if you're too lazy you can install LAMP stack with a <b>single command</b>:</h3>
+									<div class="image main"><img src="images/LAMP.jpg" alt="" /></div>
+									<b>And Voilà, you're done!</b>
+
 								</p>
 
-								<p>
-									<h3>Nmap Scanning Techniques</h3>
-
-									There are so many scanning techniques available on Nmap. <br />
 									
-									<b>TCP SYN Scan (-sS)</b><br />
-									It is a basic scan, and it is also called half-open scanning because this technique allows Nmap to get information from the remote host without the complete TCP handshake process, Nmap sends SYN packets to the destination, but it does not create any sessions, As a result, the target computer can’t create any log of the interaction because no session was initiated, making this feature an advantage of the TCP SYN scan.
-									A root/administrator privileged.<br/>
-									# nmap -sS 192.168.1.1<br />
-
-									<b>TCP connect() scan (-sT)</b><br />
-									This is the default scanning technique used, only if the SYN scan is not an option, because the SYN scan requires root privilege. 
-									This completes the normal TCP three way handshake process and requires the system to call connect(), which is a part of the operating system.
-									However one should keep in mind that this technique is only applicable to find out the TCP ports, not the UDP ports.<br />
-
-									# nmap -sT 192.168.1.1 <br />
-									
-									
-									<b>UDP Scan (-sU)</b><br />
-									This technique is used to find an open UDP port of the target machine. It does not require any SYN packet to be sent because it is targeting the UDP ports. 
-									But we can make the scanning more effective by using -sS along with –sU. 
-									UDP scans send the UDP packets to the target machine, and waits for a response—if an error message arrives saying the ICMP is unreachable, then it means that the port is closed; but if it gets an appropriate response, then it means that the port is open.<br />
-
-									# nmap -sU 192.168.1.1 <br />
-
-									<b>FIN Scan (-sF)</b><br />
-									Sometimes a normal TCP SYN scan is not the best solution because of the firewall. 
-									IDS and IPS scans might be deployed on the target machine, but a firewall will usually block the SYN packets.
-									A FIN scan sends the packet only set with a FIN flag, so it is not required to complete the TCP handshaking.<br />
-
-									# nmap -sF 192.168.1.8 <br />
-
-									<b>Ping Scan (-sP)</b><br />
-									Ping scanning is only used to find out whether the host is alive or not, it is not used to discover open ports.
-									Ping scans require root access. ICMP packets can be sent, but if the user does not have administrator privilege, then the ping scan uses connect() call.<br />
-
-									# nmap -sP 192.168.1.1 <br />
-
-									<b>Version Detection (-sV)</b><br />
-									Version detection is used to find out what software version is running on the target computer and on the respective ports.
-									It is not used to detect the open ports but it requires the information from open ports to detect the software version. 
-									In the first step of this scan technique, version detection uses the TCP SYN scan to find out which ports are open.<br />
-
-									# nmap -sV 192.168.1.1 <br />
-
-									<b>Idle Scan (-sI)</b><br />
-									Idle scan is a highly used technique, since it provides complete anonymity while scanning.
-									In idle scan, Nmap doesn’t send the packets from your real IP address.
-									Instead of generating the packets from the attacker machine, Nmap uses another host from the target network to send the packets. <br/>
-
-									# nmap -sI 192.168.1.6 192.168.1.1 <br />
-									Here idle scan technique is used to discover the open ports on 192.168.1.1 while it uses the zombie_host (192.168.1.6) to communicate with the target host. <br />
-
-									<b>OS Detection </b><br />
-									Nmap has the ability to detect remote operating systems and software. 
-									It is very helpful during a penetration test to know about the operating system and the software used by the remote computer because one can easily predict the known vulnerabilities from this information.<br />
-
-									#nmap -O 192.168.1.1 <br />
-									Here O detects the operating system. <br />
-									</p>
-
-									<p>
-										Nmap is a very powerful tool and it has ability to cover the very first aspects of penetration testing, which include information gathering and enumeration.
-									</p>
 							</section>
 
 					</div>

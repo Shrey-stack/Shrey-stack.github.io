@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>AWS EC2</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">Copying files from host to EC2 server using SCP </a>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="index.html">Know me </a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://twitter.com/ShreyankaSubba" class="icon brands fa-twitter"><span
+                            class="label">Twitter</span></a></li>
+
+                <li><a href="https://www.linkedin.com/in/shreyanka-subba-224520199/"
+                        class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+                <li><a href="https://github.com/Shrey-stack" class="icon brands fa-github"><span
+                            class="label">GitHub</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                    <h1>AWS EC2</h1>
+
+                </header>
+                <div class="image main"><img src="images/ec2.png" alt="" /></div>
+                <p>
+                    An EC2 instance is a virtual server in Amazon's Elastic Compute Cloud (EC2)
+                    for running applications on the Amazon Web Services (AWS) infrastructure.
+                    You can think of it as AWS allowing users to rent virtual computers on which you can run your own
+                    computer applications
+                </p>
+
+                <p>
+                <h3>Let's get started:</h3><br />
+                First things first, AWS offers free tier so everything I am doing, falls under the free tier.
+                Create and activate your AWS account. You just need a card for it. I was charged $1.5 and was refunded
+                later.
+                Then go to EC2 under services and click on Launch services.
+                <div class="image main"><img src="images/ami1.png" alt="" /></div>
+                I chose the Ubuntu server.
+                <div class="image main"><img src="images/ami2.png" alt="" /></div>
+                Then choose t2 micro and next cause you don't want to pay for it right!
+                <div class="image main"><img src="images/ami3.png" alt="" /></div>
+                I made no changes. Just pressed next!
+                <div class="image main"><img src="images/ami4.png" alt="" /></div>
+                Press next!
+                <div class="image main"><img src="images/ami5.png" alt="" /></div>
+                <b>Step 5</b> - Add Tags is where you want to add tags.
+                You can give any name you like. I gave ec2test because that was basically what I was doing.
+                <div class="image main"><img src="images/ami6.png" alt="" /></div>
+                <b>Step 6</b> - Configure security group can always be ammended later but since I was going to host a
+                webpage, I decided to add HTTP. <br />
+                In the source section, I chose anywhere.
+                <div class="image main"><img src="images/ami7.png" alt="" /></div>
+                Nth to do - Press Launch.
+                <div class="image main"><img src="images/ami8.png" alt="" /></div>
+                Now this is the tricky part where you'll be asked whether you want a new security key or an existing
+                one.
+                I always go for new key everytime I launch a new instance and I make sure I give a unique name which is
+                not similar to the previous keys or else you'll have an error.
+                <b>And please don't forget to download your key pair... I repeat <h3>DO NOT FORGET IT!!!</h3></b>
+                <div class="image main"><img src="images/ami9.png" alt="" /></div>
+                Save file and Voilà, you have your new EC2 instance running!<br />
+                <div class="image main"><img src="images/ami10.png" alt="" /></div>
+                Ignore the top 2 terminated instances. I tried several times before I actually gained some confidence.
+                Its quite confusing.
+                <div class="image main"><img src="images/ami11.png" alt="" /></div>
+                Now you click the left button beside the Name and click connect.
+                <div class="image main"><img src="images/ami12.png" alt="" /></div>
+                Click the third option, SSH client! This is how you can connect to your instance using SSH.
+                You have all the details here that you want to use it in your terminal.
+                Now, open your terminal.
+                <div class="image main"><img src="images/ami13.png" alt="" /></div>
+                OH, HELLO BLACK SCREEN! Missed me??? <br />
+                So now you want to go to the folder where you have your secret key saved.
+                I have it in the downloads folder. And i also got my tech-challenge directory in the downloads because
+                that is what I want to host on my EC2.
+                <div class="image main"><img src="images/ami14.png" alt="" /></div>
+                Now you would want to change the permission of the downloaded key which in my case is the ec2test.pem
+                file.
+                We give a chmod 400 filename command which basiclaly gives the owner to just read it, can't write, can't
+                execute.
+                Group and others can't even read it! <br />
+                <div class="image main"><img src="images/ami15.png" alt="" /></div>
+                Go to the SSH client section on your EC2 instance and there, from the example section, copy the command
+                and paste it on your terminal.
+                <div class="image main"><img src="images/ami16.png" alt="" /></div>
+                And Voilà, you are now in your virtual server.
+                <div class="image main"><img src="images/ami17.png" alt="" /></div>
+                First things first, if you're hosting a website, make sure to install apache.
+                <div class="image main"><img src="images/ami18.png" alt="" /></div>
+                Then you would go to /var/www/html and ls and delete the index.html because you would want your website
+                there and not apache's page right!
+                But make sure you delete the index.html in the html folder and not html folder as a whole.
+                I did it once and oh boy! It went pretty rough after that!
+                <div class="image main"><img src="images/ami19.png" alt="" /></div>
+                Now to securely copy the files, make sure you have SSH installed on your virtual server.
+                Let me breakdown this command for you.
+                <u>scp -r -i "ec2test.pem"
+                    tech-challenge/ubuntu@ec2-35-183-50-234.ca-central-1.compute.amazonaws.com:/home/ubuntu </u>
+                <b> scp </b> : Secure Copy Protocol command.<br />
+                <br> -r </br> : recursive since its a directory and not a file.<br />
+                <b> -i </b> : Identity.<br />
+                <b> ec2test.pem </b> : The secret keypair which we downloaded earlier.<br />
+                <b> tech-challenge/ </b> : The directory which I am going to copy. This directory and the secret
+                keypair.<br />
+                need not be on the same place. You can give the path and then the name after the secret key. I just do
+                this because I find it easier this way.<br />
+                <b> ubuntu@ec2..... </b> : So this is basically how I connect to my instance. It's unique and as
+                mentioned above, you can find this in the SSH client section from the AWS EC2 Instances section.<br />
+                <b> :/home/ubuntu </b> : This is where I am giving a command as to where to copy the directory. Here I
+                am commanding it t copy it on my home folder.<br />
+                <div class="image main"><img src="images/ami20.png" alt="" /></div>
+                Now I am copying the tech-challenge direv=ctory from my home to the html folder because that is where I
+                want to host my webpage.
+                <br />
+                <div class="image main"><img src="images/ami21.png" alt="" /></div>
+                Now you go to your EC2 Instance Connect and go to your public IP address and if you got it all right,
+                <b>Voilà</b>
+                you just hosted you website in a virtual server. A round of applause for yourself. <br />
+                <div>
+                    <video video width="320" height="240" controls>
+                        <source src="images/video.mp4" type="video/mp4" />
+                    </video></div>
+
+                So this is the webpage I hosted on my EC2 instance and you know why it's special - <b> coz I MADE
+                    IT!!!</b>
+                It was just for admission purpose using fully HTML and CSS and I am really looking forward to and yeah!
+                that's pretty much it!!!
+
+                <p>
+                    Please give it a try and make sure you don't have a lot of instances or else AWS might charge you.
+                    For best practice, make an instance do all the testing you want, delete it and then only make
+                    another
+                    instance.
+                    MAke the best of the free tier and Good-luck!!!
+                </p>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+
+        </footer>
+
+
+        <div id="copyright">
+            <p>&copy; Shreyanka Subba</p>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

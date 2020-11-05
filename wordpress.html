@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>Installation in Ubuntu</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">Install Wordpress on EC2 instance.</a>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="index.html">Know me </a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://twitter.com/ShreyankaSubba" class="icon brands fa-twitter"><span
+                            class="label">Twitter</span></a></li>
+
+                <li><a href="https://www.linkedin.com/in/shreyanka-subba-224520199/"
+                        class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+                <li><a href="https://github.com/Shrey-stack" class="icon brands fa-github"><span
+                            class="label">GitHub</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                    <h1>Setting up Wordpress on Amazon EC2</h1>
+
+                </header>
+                <div class="image main"><img src="images/iwp.jpg" alt="" /></div>
+                <p>
+                    WordPress is open-source software and most popular CMS (content management system) platform used by
+                    many developers and entrepreneurs around the world to run their blogs and fully functioning
+                    websites.
+
+                    In addition, WordPress is a fully-managed customizable platform with thousands of themes and plugins
+                    supported by a large global community. <br /></p>
+                <p>
+                    I assume that your EC2 Ubuntu server has been launched and you're already connected to the remote
+                    server.<br />
+                    The first thing you're going to do is install <b>apache</b> to your server.
+                    If you manage your website hosting using the WordPress platform, you will need to required
+                    installing a web server software.Hence Apche2 tada!
+
+                <div class="image main"><img src="images/wp1.png" alt="" /></div>
+                The next step is to install database to store and retrieve every requested data. In this case, we are
+                going to install <b>mariadb-server and mariadb-client</b> within the EC2 Ubuntu instance.
+                <div class="image main"><img src="images/wp2.png" alt="" /></div>
+                Next, we are going to install <b>mysql_secure_installation.</b> <br />
+                mysql_secure_installation is a shell script that enables you to improve the
+                security of your MariaDB installation in the following ways:<br />
+
+                * You can set a password for root accounts.<br />
+                * You can remove root accounts that are accessible from outside the local host.<br />
+                * You can remove anonymous-user accounts.<br />
+                * You can remove the test database, which by default can be accessed by anonymous users.
+
+                You will be asked to enter the current password for root, Simply press <br>ENTER</br><br />
+                Then you will be asked to set root's password. Type y <br />
+                Set a password and make sure you don't forget it. Re-enter your password. <br />
+
+                <div class="image main"><img src="images/wp3.png" alt="" /></div>
+                After that you will be asked to remove anonymous users. Press <b>Y</b><br />
+                Disallow root login. Press <b>Y</b><br />
+                Remove test database and access to it. Press <b>Y</b><br />
+                Reload privilege table. Press <b>Y</b><br />
+                and <b>Voilà</b> you're done!(for sometime!)
+                <div class="image main"><img src="images/wp4.png" alt="" /></div>
+                The next step is to install PHP.
+                <div class="image main"><img src="images/wp6.png" alt="" /></div>
+                After you're done installing the basics which is very similar to LAMP stack, you finally install
+                wordpress.<br />
+                Oh no! Wait a minute!<br />
+                A small step to do before installing wordpress and i.e.,
+                To install <b>wget and unzip </b>
+                <div class="image main"><img src="images/wp7.png" alt="" /></div>
+                And finally you go to your web browser and search Download Wordpress or simply press here.
+                <a href="https://en-ca.wordpress.org/download/"><br />Download Wordpress</a>
+                <div class="image main"><img src="images/wp5.png" alt="" /></div>
+                So in the blue <b>Download Wordpress 5.5.1,</b>you rightclick it and you copy the link.<br />
+                Go to the terminal, type sudo wget and <b>paste the link.</b>
+                <div class="image main"><img src="images/wp8.png" alt="" /></div>
+                After the download is complete, type ls.
+                You will see the zip file there.
+                Then simply type <b>sudo unzip latest+tab key</b>
+                <div class="image main"><img src="images/wp9.png" alt="" /></div>
+                And ta-da your wordpress is installed!
+                Then you copy the wordpress file to /var/www/html.
+                <div class="image main"><img src="images/wp10.png" alt="" /></div>
+
+                First things first, you would want to remove your <b>index.html</b> coz you don't want the apache page
+                to be shown when you open your browser.
+                <div class="image main"><img src="images/wp11.png" alt="" /></div>
+                Now you've got to change the owner of the group.
+                To check the owner, simply type <b>ls -l.</b><br />
+                You can see that all the contents belongs to root.
+                <div class="image main"><img src="images/wp13.png" alt="" /></div>
+                You would want to give wordpress the file permissions. <br />
+                So simpley type the command below:<br />
+                <b>sudo chown www-data:www-data -R /var/www/html/</b>
+                <div class="image main"><img src="images/wp14.png" alt="" /></div>
+                Now the final thing you would do is to create database and user for it.<br />
+                So you simply type the command <br />
+                <b>sudo mysql -u root -p</b>
+                You enter the password you used above while creating the secure installation. I told you to remember it.
+                <br />
+                Now you're logged in to your database.
+                So the first thing to do here is to create database. Simple type<br />
+                <b>create database wordpress;</b> (Wordpress is just a name I gave for my database.)<br />
+                Then you create a user by <br />
+                <b>create user"wpadmin"@"%" identified by "wpadminpass";</b> (Here, my username is wpadmin and password
+                is wpadminpass)
+                After that you grant privileges to your user by <br />
+                <b>grant all privileges on wordpress.* to "wpadmin"@"%";</b><br />
+                You're pretty much done! Type exit!
+                <div class="image main"><img src="images/wp15.png" alt="" /></div>
+                If you think you're finally done, go to EC2 instance and get your public address and view it.
+                If it works <b>YAHOO!!1</b>but if it doesn't then no worries, just a simple thing to do!!!
+                <div class="image main"><img src="images/wp17.png" alt="" /></div>
+                Go to your EC2 security group, edit your inbound rules and simply add HTTP and HTTPS. In the source, you
+                would simply press anywhere. <b>SAVE IT.</b>
+                <div class="image main"><img src="images/wp16.png" alt="" /></div>
+                Now go to your browser type your public address and this is what you'll be seeing now. Simple press
+                <b>Let's Go</b>
+                <div class="image main"><img src="images/wp18.png" alt="" /></div>
+                Type your database name, databaseadmin and the password. <br />
+                Make no changes to the Database Host and the Table Preflix.<br>
+                Press <b>Submit</b>
+                <div class="image main"><img src="images/wp19.png" alt="" /></div>
+                Press <b>Run the installation!</b>
+                <div class="image main"><img src="images/wp20.png" alt="" /></div>
+                You will be asked for your Site-Title, Username, Password and Email. The username and passwords are not
+                the one you used earlier for your database.
+                <div class="image main"><img src="images/wp21.png" alt="" /></div>
+                Now, you'll be asked to login
+                <div class="image main"><img src="images/wp22.png" alt="" /></div>
+                You will now be directed to the Wordpress Dashboard.<br />
+                If you see above the dashboard slightly towards the left side, you'll see a home icon. Click the icon
+                and
+                press the <b>Visit Site</b>
+                <div class="image main"><img src="images/wp24.png" alt="" /></div>
+                And <b>Voilà! You're done!!!</b>
+                Congratulations for setting wordpress on your EC2 instance. You completely deserve a pat on the back
+                even if you have to do it Yourself!
+                <div class="image main"><img src="images/wp25.png" alt="" /></div>
+
+                </p>
+
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+
+        </footer>
+
+
+        <div id="copyright">
+            <p>&copy; Shreyanka Subba</p>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>Installation in Ubuntu</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">AWS VPC EC2 Instances in Public and Private Subnets</a>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="index.html">Know me </a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://twitter.com/ShreyankaSubba" class="icon brands fa-twitter"><span
+                            class="label">Twitter</span></a></li>
+
+                <li><a href="https://www.linkedin.com/in/shreyanka-subba-224520199/"
+                        class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+                <li><a href="https://github.com/Shrey-stack" class="icon brands fa-github"><span
+                            class="label">GitHub</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                    <h1>VPC with public and private subnets</h1>
+
+                </header>
+                <div class="image main"><img src="images/vpcc.jpeg" alt="" /></div>
+                <p>
+                    <b>Amazon Virtual Private Cloud</b>
+                    Amazon VPC lets us provision a logically isolated section of the Amazon Web Services (AWS) cloud
+                    where we can launch AWS resources in a virtual network that we define. We can have complete control
+                    over our virtual networking environment, including selection of our own IP address ranges, creation
+                    of subnets and configuration of route tables and network gateways. <br /></p>
+                <p>
+                <h2>Components of Amazon VPC:</h2><br />
+                * <b>Virtual Private Cloud:</b>A logically isolated virtual network in the AWS cloud. We define a VPC’s
+                IP address space from ranges we can select. It is logically isolated from other virtual networks in the
+                AWS Cloud. We can launch your AWS resources, such as Amazon EC2 instances, into our VPC. We can
+                configure our VPC by modifying its IP address range, create subnets, and configure route tables, network
+                gateways and security settings. <br />
+                * <b>Subnet:</b>A segment of a VPC’s IP address range where we can place groups of isolated
+                resources.<br />
+                * <b>Internet Gateway:</b>The Amazon VPC side of a connection to the public Internet.<br />
+                * <b>NAT Gateway:</b>A highly available, managed Network Address Translation (NAT) service for our
+                resources in a private subnet to access the Internet.<br />
+                * <b>VPC and Subnet Sizing for IPv4:</b>When you create a VPC, you must specify an IPv4 CIDR block for
+                the VPC. The allowed block size is between a /16 netmask (65,536 IP addresses) and /28 netmask (16 IP
+                addresses). After you've created your VPC, you can associate secondary CIDR blocks with the VPC.
+                </p>
+                <p>
+                <h2>Let's get started</h2>
+                Go to services and in Networking and Content Delivery section, choose VPC
+                <div class="image main"><img src="images/vpc1.png" alt="" /></div>
+                Then choose Create VPC, give it a name, I gave mine MyVPC and my IPv4 address as 10.0.0.0/16(it could be
+                anywhere between 16-24).<br>
+                We're not dealing with IPv6 for now so not assigning anything and for tenancy we choose default. And we
+                <b>CREATE our first VPC</b>
+                <div class="image main"><img src="images/vpc2.png" alt="" /></div>
+                Now, you may have noticed that our VPC creates Route table,Security Group and NAT but there is no Subnet
+                and Internet Gateway.<br />
+                So we choose Subnet section from the left hand side column and we create it.
+                <div class="image main"><img src="images/vpc3.png" alt="" /></div>
+                So now we create two instances-one Public and one Private<br />
+                <b>First instance:</b><br />
+                * <b>Name:</b>MyPublicSubnet<br />
+                * <b>VPC:</b>My VPC (the one we created earlier)<br />
+                * <b>Availability zone:</b>1a <br />
+                * <b>VPC CDR:</b>10.0.0.0/16<br />
+                * <b>IPv4 CIDR Block:</b>10.0.1.0/24 <br />
+                <b>CREATE</b>
+                <div class="image main"><img src="images/vpc4.png" alt="" /></div>
+                <b>Second instance:</b><br />
+                * <b>Name:</b>MyPrivateSubnet<br />
+                * <b>VPC:</b>My VPC (the one we created earlier)<br />
+                * <b>Availability zone:</b>1b <br />
+                * <b>VPC CDR:</b>10.0.0.0/16<br />
+                * <b>IPv4 CIDR Block:</b>10.0.2.0/24 <br />
+                <b>CREATE</b>
+                <div class="image main"><img src="images/vpc5.png" alt="" /></div>
+                Now we create our Internet Gateway.<br />
+                Choose Internet Gateway section from the left hand side column and click on Internet Gateway.
+                <div class="image main"><img src="images/vpc6.png" alt="" /></div>
+                We name it MyIGW.<br />
+                Then from the Actions menu from the upper right hand side, we click on Attach to VPC.
+                <div class="image main"><img src="images/vpc7.png" alt="" /></div>
+                We choose MyVPC and we attach our Internet Gateway to it.
+                <div class="image main"><img src="images/vpc8.png" alt="" /></div>
+                The next thing we do is create a route table and we name it <b>MyPublicRT.</b><br />
+                In the VPC section we choose <b>MyVPC.</b><br />
+                <b>CREATE</b>
+                <div class="image main"><img src="images/vpc9.png" alt="" /></div>
+                Now from the route table, we choose MyPublicRT, the one we created just now.
+                From the section below the route table we choose <b>Routes</b> and click on <b>Edit Routes.</b>
+                <div class="image main"><img src="images/vpc10.png" alt="" /></div>
+                Then we <b>Add Route </b><br />
+                <b>Destination:</b>0.0.0.0<br />
+                <b>Target:</b>MyIGW<br />
+                <b>Save Routes</b>
+                <div class="image main"><img src="images/vpc11.png" alt="" /></div>
+                Now we choose <b>Subnet Associations</b><br />
+                <b>Edit Subnet Associations</b>
+                <div class="image main"><img src="images/vpc12.png" alt="" /></div>
+                We just choose <b>MyPublicSubnet</b>
+                <b>Save</b>
+                We do this because we just want to give Internet Gateway Access to MyPublicSubnet and not
+                MyPrivateSubnet.
+                <div class="image main"><img src="images/vpc13.png" alt="" /></div>
+                Let's verify it. <br />
+                We choose <b>MyPrivateSubnet</b> and then we select <b>Route Table</b><br />
+                There we see that Internet Gateway is not associated with it.
+                <div class="image main"><img src="images/vpc14.png" alt="" /></div>
+                Now we choose <b>MyPublicSubnet</b> and then we select <b>Route Table</b><br />
+                There we see that Internet Gateway is associated with it.
+                Then from the <b>Actions</b> section we choose <b>Modify Auto Assign IP</b>
+                <div class="image main"><img src="images/vpc15.png" alt="" /></div>
+                We select the <b>Auto Assign IPv4</b><br />
+                <b>SAVE</b><br />
+                <b>Voilà</b> you're finally done with the VPC seetings.<br />
+                <div class="image main"><img src="images/vpc17.png" alt="" /></div>
+                First things first, we're going to create two EC2- <b>MyPublicEc2</b> and <b>MyPrivate EC2</b><br />
+                We start with <h3><b>MyPublicEC2</b></h3>
+                Lets start with our first one.<br />
+                Just like our normal process, we choose Ubuntu and the t2 instance type.<br />
+                Then comes the <b>Configure Instance Details</b> where we make changes to our usual way. <br />
+                In the <b>Network</b> section, we choose MYVPC, the one we created earlier. <br />
+                In the <b>Subnet</b> section, we choose MyPublicSubnet, the one we created earlier.<br />
+                <b>Add Storage</b>
+                <div class="image main"><img src="images/vpc18.png" alt="" /></div>
+                Now we shall make changes to the <b>Security Group.</b> <br />
+                From the <b>Type</b> section, we add <b>All ICMP-IPv4</b> and in the <b>Source Section</b> we simply put
+                it in default, i.e. 0.0.0.0
+                <div class="image main"><img src="images/vpc19.png" alt="" /></div>
+                Similarly we add HTTP. <br />
+                From the <b>Type</b> section, we add <b>HTTP</b> and in the <b>Source Section</b> we simply put
+                0.0.0.0/0
+                <div class="image main"><img src="images/vpc20.png" alt="" /></div>
+                Now, we repeat the same process for <h3><b>MyPrivate EC2</b></h3>
+                In the <b>Configure Instance Details</b> we make changes as mentioned earlier. <br />
+                In the <b>Network</b> section, we choose MYVPC, the one we created earlier. <br />
+                In the <b>Subnet</b> section, we choose MyPrivateSubnet, the one we created earlier.<br />
+                <b>Add Storage</b>
+                <div class="image main"><img src="images/vpc21.png" alt="" /></div>
+                Now we shall make changes to the <b>Security Group.</b> <br />
+                From the <b>Type</b> section, we add <b>All ICMP-IPv4</b> and in the <b>Source Section</b> we simply put
+                <b>10.0.1.0/24,</b> the IPv4 address of <b>MyPublicSubnet</b>
+                <div class="image main"><img src="images/vpccrop.png" alt="" /></div>
+                We choose the same existing key we created for our first EC2 instance, i.e. <b>MyPublicEC2</b>
+                <div class="image main"><img src="images/vpc22.png" alt="" /></div>
+                Then, we go to our Search section and simply type <b>Putty</b><br />
+                We use Putty because we are going to connect to our EC2 instance via Windows and not Ubuntu.<br />
+                If you're using Ubuntu then you can ignore this process.
+                I hope you all have downloaded Putty. I have shown how to download it in one of my earlier blog.<br />
+                Please select <b>Puttygen</b> - the one with key.
+                <div class="image main"><img src="images/vpc23.png" alt="" /></div>
+                We click on the <b>Load Key</b> option and we select the key we downloaded earlier. <br />
+                Please make sure you're searching in the exact location where you've kept your key. Mine is on the
+                <b>Desktop</b> folder.<br />
+                Make sure you select <b>All Files</b> from the section below.<br />
+                Choose your key and select <b>OK </b> and then click on <b>Save Private Key.</b><br />
+                We give it the same name and Save it.
+                <div class="image main"><img src="images/vpc24.png" alt="" /></div>
+                Now we go to Search and again type Putty. This time we select the <b>Desktop app,</b> the one without
+                the key.<br />
+                In the <b>Host Name</b> we write the IPv4 address of MyPublicEC2.<br />
+                Then from the left hand column we chhose <b>SSH-Auth-GSSAPI</b> <br />
+                Choose browse, go to all files and select the converted key, the one with the computer logo.
+                <div class="image main"><img src="images/vpc25.png" alt="" /></div>
+                You will see a <b>Security Alert</b> box, simply type OK
+                <div class="image main"><img src="images/vpc26.png" alt="" /></div>
+                Now, a black window opens, somewhat like Command Prompt, that is just Putty and it asks <b>login
+                    as</b><br />
+                Simply type <b>ubuntu</b>
+                <div class="image main"><img src="images/vpc27.png" alt="" /></div>
+                <b>Voilà</b> you are now in your PublicEC2 instance.<br />
+                Such a lengthy process, I know I know!!!<br />
+                I pinged google.com just to see if it's working or not, and It is.... <b>WOHOO!!!</b>
+                <div class="image main"><img src="images/vpc28.png" alt="" /></div>
+                Now from your <b>MyPrivateEc2</b> you copy the Private IPv4 address. <br />
+                (Note that the provate EC2 doesn't have public IP address assigned to it coz no internet gateway has
+                been accessed to it.)
+                <div class="image main"><img src="images/vpc29.png" alt="" /></div>
+                Now we ping to that IP address and It's working fine....But wait a minute....<b>HOW???</b><br />
+                That is because we have given it the permission earlier in the security group, remember???
+                <div class="image main"><img src="images/vpc30.png" alt="" /></div>
+                Let's delete that inbound rules, shall we? <br />
+                Go to security group of MyPrivateEC2 and edit inbound rules and delete the All ICMP-IPv4.<br />
+                <b>SAVE</b>
+                <div class="image main"><img src="images/vpc31.png" alt="" /></div>
+                What happens when we ping it now???<br />
+                It doesn't respond right!
+                So how ae we going to communicate with it or get in the server when it doesn't even have a public IP
+                address?
+                <div class="image main"><img src="images/vpc32.png" alt="" /></div>
+                We open our keypair the original one, the one that isn't converted in a text editor, I used
+                <b>Notepad</b> <br />
+                And we copy the contents in it.
+                <div class="image main"><img src="images/vpc33.png" alt="" /></div>
+                Now we go to our server and we simply type nano and give it the same name as our keyfile. <br />
+                Mine is VPCEC2.<br />
+                What I type is nano VPCEC2 and we paste our content to it. <b>Ctrl X, Yes</b>
+                <div class="image main"><img src="images/vpc34.png" alt="" /></div>
+                After that we change the permission of our file by simply typing: <br />
+                chmod 0600 filename <br />
+                In my case <u>chmod 0600 VPCEC2</u>
+                Then we login to our private EC2 instance.
+                Simply type <b>ssh ubuntu@(Private IP address of MyPrivateEC2) -i filename</b><br />
+                In my case, <b>ssh ubuntu@10.0.2.174 -i VPCEC2</b><br />
+                Fingerprint-yes
+                <div class="image main"><img src="images/vpc35.png" alt="" /></div>
+                Now guess who is inside their PrivateEC2 intance??? <b>Wohoo!</b>
+                <div class="image main"><img src="images/vpc36.png" alt="" /></div>
+                Let's try to update it. <br />
+                <b>sudo apt update</b><br />
+                Doesn't work right! Thats coz no internet gateway has been assocaied to it.<br />
+                But our main purpose was to get in the priavte server via public server through EC2 right which we did
+                pretty well.
+
+                <div class="image main"><img src="images/vpc37.png" alt="" /></div>
+                So lets exit.<br />
+                We're still in our PublicEC2 instance so let's exit again.
+                <div class="image main"><img src="images/vpc38.png" alt="" /></div>
+                And <b>Voilà WE ARE DONE!</b><br />
+                I know it's a lengthy process but please try it! It's so fun and exciting and you'll learn a lot in the
+                process.<br />
+                <b>GOODLUCK!</b>
+                </p>
+
+
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+
+        </footer>
+
+
+        <div id="copyright">
+            <p>&copy; Shreyanka Subba</p>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
